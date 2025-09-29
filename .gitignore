@@ -1,0 +1,12 @@
+.idea
+*.log
+*.cls
+.idea*
+.~*
+.fuse*
+*.aux
+*.out
+*.fdb_latexmk
+*.fls
+*.gz
+*.pdf

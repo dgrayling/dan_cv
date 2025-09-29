@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daniel Grayling - Software Engineer</title>
+    <style>
+      /* Use only system fonts to ensure availability in headless/CI PDF renderers */
+
+      :root {
+        --primary-color: #4169e1; /* RoyalBlue */
+        --text-color: #333;
+        --light-gray: #f5f5f5;
+        --spacing: 1em;
+        --small-spacing: 0.5em;
+      }
+
+      body {
+        /* System serif stack to avoid external font dependencies in CI */
+        font-family: Georgia, "Times New Roman", Times, serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+        font-size: 16px;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: var(--spacing);
+      }
+
+      .left-header {
+        width: 70%;
+      }
+
+      .right-header {
+        width: 25%;
+      }
+
+      h1 {
+        color: var(--primary-color);
+        font-size: 2.5em;
+        margin: 0 0 0.2em 0;
+      }
+
+      h2 {
+        font-size: 1.5em;
+        margin: 0 0 0.5em 0;
+      }
+
+      h3 {
+        font-size: 1.2em;
+        color: var(--primary-color);
+        margin: 1.5em 0 0.5em 0;
+      }
+
+      .section {
+        margin-bottom: var(--spacing);
+      }
+
+      .cv-item {
+        margin-bottom: var(--spacing);
+      }
+
+      .cv-item-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.3em;
+      }
+
+      .cv-item-title {
+        font-weight: bold;
+        color: var(--primary-color);
+      }
+
+      .cv-item-date {
+        font-style: italic;
+      }
+
+      .skills-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .skills-column {
+        width: 48%;
+        margin-bottom: var(--spacing);
+      }
+
+      .skills-category {
+        font-weight: bold;
+        margin: 1em 0 0.5em 0;
+        color: var(--primary-color);
+      }
+
+      ul {
+        margin: 0.5em 0;
+        padding-left: 1.5em;
+      }
+
+      li {
+        margin-bottom: 0.3em;
+      }
+
+      .divider {
+        height: 0;
+        border-top: 1px solid #ddd;
+        margin: var(--spacing) 0;
+      }
+
+      @media (max-width: 768px) {
+        .header,
+        .skills-container {
+          flex-direction: column;
+        }
+
+        .left-header,
+        .right-header,
+        .skills-column {
+          width: 100%;
+        }
+
+        .right-header {
+          margin-top: var(--spacing);
+        }
+      }
+
+      /* Print-specific adjustments */
+      @page {
+        size: A4;
+        margin: 12mm 12mm 14mm 12mm;
+      }
+
+      @media print {
+        html,
+        body {
+          max-width: unset;
+          margin: 0;
+          padding: 0;
+          color: #000;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+
+        a[href] {
+          color: inherit;
+          text-decoration: none;
+        }
+
+        .header {
+          align-items: flex-start;
+        }
+
+        .section,
+        .cv-item {
+          break-inside: avoid;
+          page-break-inside: avoid;
+        }
+
+        h1,
+        h2,
+        h3 {
+          break-after: avoid;
+          page-break-after: avoid;
+          break-inside: avoid;
+        }
+
+        .divider {
+          height: 0;
+          border-top: 1px solid #aaa;
+          margin: 10mm 0 6mm 0; /* slightly asymmetric to reduce chance of sitting exactly on a page edge */
+          break-inside: avoid;
+          page-break-after: avoid; /* avoid ending page right after a divider */
+        }
+
+        /* Tighten vertical rhythm a bit for print */
+        body {
+          font-size: 12pt;
+        }
+        h1 {
+          font-size: 22pt;
+        }
+        h2 {
+          font-size: 14pt;
+        }
+        h3 {
+          font-size: 12.5pt;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="left-header">
+        <h1>Daniel Grayling</h1>
+        <h2>Software Engineer</h2>
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:daniel.grayling.work@gmail.com"
+            >daniel.grayling.work@gmail.com</a
+          >
+        </p>
+        <p><strong>Phone:</strong>07543 663880</p>
+      </div>
+      <div class="right-header">
+        <p><strong>Address:</strong></p>
+        <p>
+          Ely<br />
+          Cambridgeshire<br />
+          United Kingdom<br />
+        </p>
+      </div>
+    </div>
+
+    <div class="section">
+      <p>
+        Fullstack software engineer but recently working primarily on
+        frontend.<br />
+        10 years of experience mostly writing webapps and more recently browser
+        extensions, 6 years writing webapps with React, Zustand, Xstate, Redux.
+      </p>
+      <p>
+        I've worked independently, in direct collaboration with project
+        management and in team settings.
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <h3>Skill Set</h3>
+      <div class="skills-container">
+        <div class="skills-column">
+          <div class="skills-category">Webapps Frontend:</div>
+          <ul>
+            <li>Typescript, Javascript, HTML, CSS</li>
+            <li>ES6</li>
+            <li>Npm</li>
+            <li>React</li>
+            <li>Less</li>
+          </ul>
+
+          <div class="skills-category">Webapps Testing:</div>
+          <ul>
+            <li>Jest</li>
+          </ul>
+        </div>
+
+        <div class="skills-column">
+          <div class="skills-category">Automation/Infrastructure:</div>
+          <ul>
+            <li>Docker</li>
+            <li>Docker Compose</li>
+          </ul>
+
+          <div class="skills-category">Other:</div>
+          <ul>
+            <li>Bash</li>
+            <li>Git</li>
+            <li>Linux, Mac OS, Windows</li>
+          </ul>
+
+          <div class="skills-category">IDEs:</div>
+          <ul>
+            <li>VS Code</li>
+            <li>Windsurf</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <h3>Github</h3>
+    <a href="https://github.com/dgrayling/">https://github.com/dgrayling/</a>
+    <br />
+    <a href="https://dgrayling.github.io/chess-web-app/"
+      >https://dgrayling.github.io/chess-web-app/</a
+    >
+    <br />
+    <a href="https://github.com/dgrayling/chess-web-app"
+      >https://github.com/dgrayling/chess-web-app</a
+    >
+    <br />
+    <a href="https://github.com/dgrayling/haskell-orbits"
+      >https://github.com/dgrayling/haskell-orbits</a
+    >
+    <br />
+    <a href="https://github.com/dgrayling/physics1"
+      >https://github.com/dgrayling/physics1</a
+    >
+    <br />
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <h3>Experience</h3>
+
+      <div class="cv-item">
+        <div class="cv-item-header">
+          <span class="cv-item-title"
+            >Technology from Sage: Software Engineer</span
+          >
+          <span class="cv-item-date">February 2022 - November 2024</span>
+        </div>
+        <p>
+          <strong>Technologies:</strong> React, Typescript, Zustand, Webpack
+        </p>
+        <p>
+          Frontend developer for the Lean Library extension, delivering new
+          features and bug fixes as well as liaising with customers to resolve
+          issues and working with UX designers to ensure design compliance.
+        </p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="cv-item">
+        <div class="cv-item-header">
+          <span class="cv-item-title">Sciwheel: Software Engineer</span>
+          <span class="cv-item-date">February 2019 - February 2022</span>
+        </div>
+        <p>
+          <strong>Technologies:</strong> React, Redux, Webpack, Google Cloud
+        </p>
+        <p>Primary maintainer for the Sciwheel Google Docs plugin.</p>
+        <p>
+          Worked with product management to devlier new feature sets, bug fixes
+          and liased with customers to determine issues. Later refactored the
+          architecture and deployment process to develop a new backend and
+          frontend provider for deploying the same app on Microsoft Word and
+          Office 365 Word.
+        </p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="cv-item">
+        <div class="cv-item-header">
+          <span class="cv-item-title">Lucidworks: Software Engineer</span>
+          <span class="cv-item-date">April 2018 - January 2019</span>
+        </div>
+        <p><strong>Technologies:</strong> AngularJS</p>
+        <p>
+          I was the primary maintainer for the Twigkit component library. I
+          produced bug fixes, fixed descrepancies between components, supported
+          new customer integrations and managed and deployed new versions to
+          customers.
+        </p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="cv-item">
+        <div class="cv-item-header">
+          <span class="cv-item-title">Floor51: Software Engineer</span>
+          <span class="cv-item-date">October 2017 - April 2018</span>
+        </div>
+        <p>
+          <strong>Technologies:</strong> React, Redux, D3, Java Spring, MySql
+        </p>
+        <p>
+          Developed new user interface for displaying radio signal data from a
+          SQL database. I produced displays tables for individual devices and
+          various graphs for signal strength and latency against time and
+          distance. I also wrote a Spring backend for querying the SQL database
+          and provide API's to the frontend.
+        </p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="cv-item">
+        <div class="cv-item-header">
+          <span class="cv-item-title"
+            >Autonomy under Hewlett Packard, then HPE, then Micro Focus:
+            Software Engineer</span
+          >
+          <span class="cv-item-date">November 2014 - September 2017</span>
+        </div>
+        <p>
+          <strong>Technologies:</strong> Backbone.js, Underscore.js, jQuery,
+          Grunt, Spring, Docker, Docker Compose, Ansible, Vagrant, Jenkinsfiles,
+          Travis CI
+        </p>
+        <p>
+          Built interfaces for end users and administrators with a common
+          technology stack of Backbone and Spring. Products worked on were end
+          user interfaces, initially an Admin dashboard but later worked with a
+          team to build a new general user interface. From September 2016 I was
+          additionally the Release and Automation Engineer. I was the sole
+          developer of what was effecitvely an internal contineous deployment
+          system that used an Nginx reverse proxy to route to deployments of
+          product feature branches deployed with Docker and Ansible.
+        </p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <h3>Education</h3>
+      <p>
+        <strong>BSc Theoretical Physics, 2:1</strong>, University of Birmingham,
+        2013
+      </p>
+      <p>
+        <strong>A-levels</strong>: Physics (A), Maths (A), Chemistry (B),
+        AS-level Biology (A)
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <h3>Historical and Hobby Skill Set</h3>
+      <div class="skills-container">
+        <div class="skills-column">
+          <div class="skills-category">Webapps Frontend:</div>
+          <ul>
+            <li>Redux</li>
+            <li>D3</li>
+            <li>Backbone</li>
+            <li>Underscore</li>
+            <li>Bootstrap</li>
+          </ul>
+
+          <div class="skills-category">Webapps Backend:</div>
+          <ul>
+            <li>Java Spring</li>
+            <li>Java Spring JPA</li>
+            <li>Maven</li>
+          </ul>
+
+          <div class="skills-category">Webapps Testing:</div>
+          <ul>
+            <li>Jasmine</li>
+          </ul>
+        </div>
+
+        <div class="skills-column">
+          <div class="skills-category">Automation/Infrastructure:</div>
+          <ul>
+            <li>Ansible</li>
+            <li>Vagrant</li>
+          </ul>
+
+          <div class="skills-category">Other:</div>
+          <ul>
+            <li>Rust</li>
+            <li>Haskell</li>
+          </ul>
+
+          <div class="skills-category">IDEs:</div>
+          <ul>
+            <li>Intellij</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
