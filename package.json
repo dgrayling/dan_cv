@@ -1,0 +1,11 @@
+{
+  "name": "cv-pdf-generator",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "generate": "node generate_pdf.js"
+  },
+  "dependencies": {
+    "playwright": "^1.58.2"
+  }
+}
