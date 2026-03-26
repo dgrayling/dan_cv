@@ -30,11 +30,14 @@ async function generatePDF() {
     ? path.resolve(process.env.OUTPUT_PATH)
     : path.resolve(__dirname, 'dgrayling_cv.pdf');
   console.log('Generating PDF...');
+  const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
+  const scale = Math.min(1, (297 * 3.7795) / bodyHeight); // A4 height in px at 96dpi
+
   await page.pdf({
     path: outputPath,
     format: 'A4',
     printBackground: true,
-    // Let the CSS @page margins (12mm/12mm/14mm/12mm) take effect
+    scale,
     margin: { top: '0', right: '0', bottom: '0', left: '0' },
   });
 
